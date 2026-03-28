@@ -1,0 +1,17 @@
+.App {
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg, #f0f6ff 0%, #dbeafe 100%);
+  min-height: 100vh;
+}
+
+.portal-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #003366;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+}
+  }
+}
