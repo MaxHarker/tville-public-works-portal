@@ -1,25 +1,44 @@
 import React, { useState } from "react";
 import LocationMap from "./LocationMap";
 import "./RequestForm.css";
+import { submitRequest } from "../api/requests";
 
 const RequestForm = ({ onSubmit }) => {
+  var testExpressUrl = "http://localhost:5000";
+
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
   const [position, setPosition] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!location || !description) {
       alert("Please fill in all fields");
       return;
     }
-    const lat = position ? position.lat : null;
-    const lng = position ? position.lng : null;
-    onSubmit({ location, description, lat, lng });
-    // Reset form
-    setLocation("");
-    setDescription("");
-    setPosition(null);
+
+    const newRequest = {
+      id: Date.now(),
+      location,
+      description,
+      status: "Submitted",
+      lat: position?.lat ?? null,
+      lng: position?.lng ?? null,
+      createdAt: new Date().toISOString(),
+    };
+
+    try {
+      const savedRequest = await submitRequest(newRequest, testExpressUrl);
+      console.log("Request saved:", savedRequest);
+      alert("Request submitted successfully!");
+      
+      setLocation("");
+      setDescription("");
+      setPosition(null);
+    } catch {
+      alert("Failed to submit request. Try again later.");
+    }
   };
 
   return (
