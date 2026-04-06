@@ -4,7 +4,6 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
 
-// Default marker icon
 const defaultIcon = new L.Icon({
   iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png",
   shadowUrl: iconShadow,
@@ -12,7 +11,6 @@ const defaultIcon = new L.Icon({
   iconAnchor: [12, 41],
 });
 
-// Component to handle map clicks
 function LocationMarker({ position, setPosition }) {
   useMapEvents({
     click(e) {
@@ -28,7 +26,7 @@ function LocationMarker({ position, setPosition }) {
 }
 
 function LocationMap({ position, setPosition }) {
-  const center = [40.6677, -111.9388]; // Taylorsville center
+  const center = [40.6677, -111.9388];
 
   return (
     <MapContainer

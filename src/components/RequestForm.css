@@ -1,5 +1,5 @@
 .request-form {
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -20,6 +20,7 @@
   color: #333;
 }
 
+/* Unified input and textarea styles */
 .form-group input,
 .form-group textarea {
   width: 100%;
@@ -27,7 +28,11 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 1rem;
+  font-family: inherit;
+  line-height: 1.5;
   box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  resize: vertical;
 }
 
 .form-group input:focus,
@@ -37,6 +42,7 @@
   box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
 }
 
+/* Submit button */
 .submit-btn {
   background-color: #3498db;
   color: white;
